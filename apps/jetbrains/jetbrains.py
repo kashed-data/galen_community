@@ -50,6 +50,9 @@ port_mapping = {
     "jetbrains-rubymine-eap": 8661,
     "jetbrains-studio": 8652,
     "jetbrains-webstorm": 8663,
+    # GK: Add a couple dictionary items for Datagrip since VCIdea port was being set to 'None'
+    "DataGrip": 8664,
+    "datagrip64.exe": 8664,
     "RubyMine": 8661,
     "RubyMine-EAP": 8661,
     "PyCharm": 8658,
@@ -269,7 +272,8 @@ class EditActions:
 @ctx.action_class("win")
 class WinActions:
     def filename() -> str:
-        title: str = actions.win.title()
+        title: str = "manual-override.sql" # put .sql in the title so it forces sql
+        # title: str = actions.win.title()
         result = title.split()
 
         # iterate over reversed result

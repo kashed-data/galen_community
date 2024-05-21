@@ -167,6 +167,10 @@ formatters_dict = {
         first_vs_rest(lambda w: title_case()(0, w, True)),
     ),
     "CAPITALIZE_ALL_WORDS": (SEP, title_case()),
+    "OBJECT_CASE": (
+        SEP,
+        surround("`"),
+    ),
 }
 
 # Mapping from spoken phrases to formatter names
@@ -186,6 +190,7 @@ code_formatter_names = {
     "smash": "NO_SPACES",
     "snake": "SNAKE_CASE",
     "string": "SINGLE_QUOTED_STRING",
+    "object": "OBJECT_CASE",
 }
 prose_formatter_names = {
     "say": "NOOP",

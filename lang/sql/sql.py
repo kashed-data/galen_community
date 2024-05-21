@@ -6,7 +6,14 @@ code.language: sql
 """
 
 # these vary by dialect
-ctx.lists["user.code_common_function"] = {"count": "Count", "min": "Min", "max": "Max"}
+ctx.lists["user.code_common_function"] = {
+    "count": "count",
+    "min": "min",
+    "max": "max",
+    "sum": "sum",
+    "over": "over",
+    "as": "as",
+}
 
 
 @ctx.action_class("user")
@@ -42,25 +49,25 @@ class UserActions:
         actions.auto_insert(" <= ")
 
     def code_operator_in():
-        actions.user.insert_between(" IN (", ")")
+        actions.user.insert_between(" in (", ")")
 
     def code_operator_not_in():
-        actions.user.insert_between(" NOT IN (", ")")
+        actions.user.insert_between(" not in (", ")")
 
     def code_operator_and():
-        actions.auto_insert("AND ")
+        actions.auto_insert("and ")
 
     def code_operator_or():
-        actions.auto_insert("OR ")
+        actions.auto_insert("or ")
 
     def code_insert_null():
-        actions.auto_insert("NULL")
+        actions.auto_insert("null")
 
     def code_insert_is_null():
-        actions.auto_insert(" IS NULL")
+        actions.auto_insert(" is null")
 
     def code_insert_is_not_null():
-        actions.auto_insert(" IS NOT NULL")
+        actions.auto_insert(" is not null")
 
     def code_comment_line_prefix():
         actions.auto_insert("-- ")
